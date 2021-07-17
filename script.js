@@ -1,24 +1,40 @@
 const etchaSketch = () => {
-  const displayGrid = () => {
-    for (let i = 0; i < 16 ** 2; i++) {
-      const grid = document.createElement("div");
-      const screen = document.querySelector(".screen");
-      grid.className = `square${i}`;
+  const screen = document.querySelector(".screen");
 
+  //   let canvasSize = prompt("How many pixels? ");
+  let canvasSize = 20;
+  const displayGrid = (pixels) => {
+    for (let i = 0; i < pixels ** 2; i++) {
+      const grid = document.createElement("div");
+      grid.classList.add("grid");
+      grid.className = `square${i}`;
+      grid.style.backgroundColor = "white";
       screen.appendChild(grid);
-      grid.style = "border: 1px solid black; height: 32px; width: 32px; ";
     }
+    screen.style.gridTemplateColumns = `repeat(${pixels}, auto)`;
+    screen.style.gridTemplateRows = `repeat(${pixels}, auto)`;
   };
-  const drawSquares = () => {
-    for (let i = 0; i < 16 ** 2; i++) {
-      const test = document.querySelector(`.square${i}`);
-      test.addEventListener("mouseover", function (e) {
-        test.style = "background-color: black; height: 32px; width: 32px";
-        console.log(test);
+  const drawSquares = (pixels) => {
+    for (let i = 0; i < pixels ** 2; i++) {
+      const draw = document.querySelector(`.square${i}`);
+      draw.addEventListener("mouseover", function (e) {
+        draw.style = "background-color: black";
+        console.log(draw);
       });
     }
   };
-  displayGrid();
-  drawSquares();
+  const eraseImage = (pixels) => {
+    const eraserBtn = document.querySelector(".eraser");
+    eraserBtn.addEventListener("click", (e) => {
+      for (let i = 0; i < pixels ** 2; i++) {
+        const grid = document.querySelector(`.square${i}`);
+        grid.style.backgroundColor = "white";
+        console.log(eraserBtn);
+      }
+    });
+  };
+  eraseImage(canvasSize);
+  displayGrid(canvasSize);
+  drawSquares(canvasSize);
 };
 etchaSketch();
