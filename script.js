@@ -16,11 +16,12 @@ const etchaSketch = () => {
   };
   const drawSquares = (pixels) => {
     const rainbowBtn = document.querySelector(".rainbow");
+    const blackBtn = document.querySelector(".black");
     // Draws on screen.
     for (let i = 0; i < pixels ** 2; i++) {
       const draw = document.querySelector(`.square${i}`);
       draw.addEventListener("mouseover", function (e) {
-        draw.style = "background-color: black";
+        draw.style.backgroundColor = "black";
         draw.style = "transition: 0.1s all ease-in";
       });
       // Selects a random number and assigns that number to R/G/B values.
@@ -30,6 +31,12 @@ const etchaSketch = () => {
           const randomG = Math.floor(Math.random() * 255);
           const randomB = Math.floor(Math.random() * 255);
           draw.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        });
+      });
+      // Enables user to draw in black again after selectin rainbow.
+      blackBtn.addEventListener("click", (e) => {
+        draw.addEventListener("mouseover", (e) => {
+          draw.style.backgroundColor = "black";
         });
       });
     }
