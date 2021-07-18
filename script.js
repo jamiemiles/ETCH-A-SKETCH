@@ -42,7 +42,6 @@ const etchaSketch = () => {
       for (let i = 0; i < pixels ** 2; i++) {
         const grid = document.querySelector(`.square${i}`);
         grid.style.backgroundColor = "white";
-        console.log(eraserBtn);
       }
       // Animates board when erase button clicked
       board.style.animation = "shakeBoard 0.5s ease";
