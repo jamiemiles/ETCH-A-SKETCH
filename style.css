@@ -25,12 +25,55 @@
   margin: auto;
   border: 10px solid black;
 }
-.eraser {
+
+.eraser,
+.rainbow {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: white;
+  padding: 20px;
+  width: 20%;
+  background-color: red;
+  border-radius: 4px;
+  font-family: sans-serif;
+  color: whitesmoke;
 }
-.eraser:hover {
-  background-color: violet;
+button:hover {
+  background-color: rgb(156, 25, 25);
+  cursor: pointer;
+}
+
+@keyframes shakeBoard {
+  0% {
+    transform: translateX(5%);
+  }
+  10% {
+    transform: translateX(-5%);
+  }
+  20% {
+    transform: translateX(5%);
+  }
+  30% {
+    transform: translateX(-5%);
+  }
+  40% {
+    transform: translateX(5%);
+  }
+  50% {
+    transform: translateX(-5%);
+  }
+  60% {
+    transform: translateX(5%);
+  }
+  70% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(5%);
+  }
+  90% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(5%);
+  }
 }
